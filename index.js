@@ -81,6 +81,30 @@ app.get('/api/ternak', (req, res) => {
     });
 });
 
+// 1. Endpoint GET: Mengambil semua data ternak
+
+// 2. Endpoint POST: Menambah data ternak baru
+app.post('/api/ternak', (req, res) => {
+    const { nama_ternak } = req.body;
+
+    if (!nama_ternak) {
+        return res.status(400).json({ status: "error", message: "Nama ternak tidak boleh kosong" });
+    }
+
+    const query = "INSERT INTO ternak (nama_ternak) VALUES (?)";
+    
+    db.query(query, [nama_ternak], (err, result) => {
+        if (err) {
+            return res.status(500).json({ status: "error", message: err.message });
+        }
+        res.status(201).json({ 
+            status: "success", 
+            message: "Data ternak berhasil ditambahkan",
+            id: result.insertId 
+        });
+    });
+});
+
 app.get('/api/gejala', (req, res) => {
     db.query('SELECT * FROM gejala', (err, result) => {
         if (err) return res.status(500).json(err);

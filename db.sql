@@ -3,7 +3,7 @@ CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nama_lengkap VARCHAR(100),
     username VARCHAR(50) UNIQUE,
-    password VARCHAR(255),
+    password VARCHAR(255)
 
 );
 CREATE TABLE admin (
