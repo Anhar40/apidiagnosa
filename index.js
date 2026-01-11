@@ -6,10 +6,11 @@ const app = express();
 app.use(bodyParser.json());
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'db_hewan'
+    host: 's4psjr.h.filess.io',
+    user: 'diagnosa__programin',
+    password: 'b4be05fbe0bc839893c0196bcbcc62bad859ba61',
+    database: 'diagnosa__programin',
+    port: 3307
 });
 
 // Endpoint untuk Registrasi User (Plain Text)
